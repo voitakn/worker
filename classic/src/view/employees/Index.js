@@ -3,7 +3,9 @@ Ext.define('WK.view.employees.Index', {
     reference: 'employees_index',
     requires: [
         'WK.view.employees.Controller',
-        'WK.view.employees.ViewModel'
+        'WK.view.employees.ViewModel',
+        'Ext.grid.Panel',
+        'Ext.form.Panel',
     ],
     controller: 'employees',
     viewModel: 'employees',

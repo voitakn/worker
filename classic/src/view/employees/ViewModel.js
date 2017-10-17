@@ -41,7 +41,6 @@ Ext.define('WK.view.employees.ViewModel', {
     alias: 'viewmodel.employees',
     data: {
         frecord: null,
-        guid: null,
         form: null
     },
     stores: {

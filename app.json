@@ -57,7 +57,6 @@
      */
     "requires": [
         //"charts",
-        "ext-locale",
         "font-awesome",
         "ux"
     ],
@@ -202,6 +201,9 @@
      * Settings specific to classic toolkit builds.
      */
     "classic": {
+        "requires": [
+            "ext-locale"
+        ],
         "js": [
 //            // Remove this entry to individually load sources from the framework.
             {

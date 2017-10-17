@@ -66,12 +66,11 @@ Ext.define('WK.view.main.Controller', {
             var moduleObj = Ext.create('WK.view.main.Errore404');
             if (module) {
                 var mclass = 'WK.view.' + module + '.Index';
-                console.log('renderModule', mclass);
                 try {
                     moduleObj = Ext.create(mclass);
                 }
                 catch (e) {
-                    console.log('ERROR', e);
+
                 }
             }
             refs.contentPanel.add(moduleObj);

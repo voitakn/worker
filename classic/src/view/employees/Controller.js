@@ -24,12 +24,10 @@ Ext.define('WK.view.employees.Controller', {
         var me = this,
         text = resp.responseText,
         res = Ext.JSON.decode(text);
-        console.log(resp);
         window.db = res;
         me.setEmployerStore();
     },
     setEmployerStore: function() {
-        console.log(window.db);
         var me = this,
             vm = me.getViewModel(),
             store = vm.getStore('employees');
@@ -39,7 +37,6 @@ Ext.define('WK.view.employees.Controller', {
         var me = this,
             vm = me.getViewModel();
         vm.set('frecord', null);
-        vm.set('guid', null);
         me.showForm();
     },
 
@@ -50,7 +47,6 @@ Ext.define('WK.view.employees.Controller', {
         me.showForm();
         var rec = store.getAt(rowIndex);
         vm.set('frecord', rec);
-        vm.set('guid', rec.get('guid'));
         rec.beginEdit();
     },
 
@@ -59,14 +55,12 @@ Ext.define('WK.view.employees.Controller', {
             view = me.getView(),
             vm = me.getViewModel(),
             form = vm.get('form');
-        console.log('showForm', form);
         if(!form) {
             form = view.add({
                 xtype: 'employeesForm'
             });
             vm.set('form', form);
         } else {
-            console.log('isVisible', form.isVisible());
             form.close();
         }
         form.show();
@@ -85,7 +79,7 @@ Ext.define('WK.view.employees.Controller', {
             frecord.set('name', newName);
             frecord.endEdit();
             frecord.commit();
-        } else { //commitChanges
+        } else {
             frecord.guid = me.genGuid();
             var newItem = Ext.create('WK.model.Employer', frecord);
             store.add(newItem);
@@ -128,6 +122,5 @@ Ext.define('WK.view.employees.Controller', {
             }
         }
         vm.set('frecord', null);
-        vm.set('guid', null);
     }
 });
